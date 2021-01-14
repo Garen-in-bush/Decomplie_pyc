@@ -26,3 +26,4 @@ pip install xxx.wheel
 ```shell
 decompile_pyc -c path  # path为需要反编译的文件所在目录
 ```
+### https://zhuanlan.zhihu.com/p/344278133
