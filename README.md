@@ -7,11 +7,22 @@ uncompile_pyc
 pip install decompile_pyc
 ```
 ### 方法2 源码安装
-'git clone https://github.com/Garen-in-bush/Decomplie_pyc.git'
+```shell
+git clone https://github.com/Garen-in-bush/Decomplie_pyc.git
+```
 进入到setup.py所在的目录，执行
-```python
-'python setup.py sdist bdist_wheel'
-'cd dist'
-'pip install xxx.tar.gz'
+```shell
+python setup.py sdist bdist_wheel
+cd dist
+pip install xxx.tar.gz
+```
 或者
-‘pip install xxx.wheel’
+```shell
+pip install xxx.wheel
+```
+使用
+--------------------------------
+### 进入对应的python环境(如果有多个虚拟环境的话)
+```shell
+decompile_pyc -c path  # path为需要反编译的文件所在目录
+```
