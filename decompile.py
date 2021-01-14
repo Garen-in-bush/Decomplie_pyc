@@ -1,6 +1,6 @@
 import os
-import logging
-from utils import cut_file_path_suffix
+import sys
+from decompile.utils import cut_file_path_suffix
 
 # _author: 李某人
 # E-mail: 594680963@qq.com
@@ -41,3 +41,28 @@ class Decompile:
         file_path = cut_file_path_suffix(file_path)
         command = 'uncompyle6 -o %s.py %s.pyc' % (file_path, file_path)
         os.system(command)
+
+    @staticmethod
+    def parsing_parameters(parameters):
+        if len(parameters) == 1:
+            print('decompile_pyc:')
+            print('    -h or --help for help')
+            print('--------------------------------------')
+            print('    options:')
+            print('        -c: to decompile pyc files')
+            print('            decompile_pyc -c dir_name')
+        elif parameters[1] == '-h' or parameters[1] == '--help':
+            print('decompile_pyc:')
+            print('    options:')
+            print('        -c: to decompile pyc files')
+            print('            decompile_pyc -c dir_name')
+        elif parameters[1] == '-c':
+            decompile_item = Decompile(parameters[2])
+            decompile_item.run()
+            print('All pyc files have been decompiled successfully')
+
+
+def main():
+    Decompile.parsing_parameters(sys.argv)
+
+
